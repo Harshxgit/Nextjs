@@ -1,13 +1,15 @@
 import React from 'react'
 
-async function fetchData(){
-    await new Promise(r=>setTimeout(r,3000))
-}
+import { getServerSession } from 'next-auth'
+import { json } from 'node:stream/consumers'
+import { NEXT_AUTH } from '../lib/auth'
 
 async function page() {
-    const data = await fetchData()
+   const session = getServerSession(NEXT_AUTH)
   return (
-    <div>page</div>
+    <div>page
+      {JSON.stringify(session)}
+    </div>
   )
 }
 

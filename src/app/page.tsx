@@ -1,5 +1,6 @@
 
 import client from "../../db"
+import { Appbar } from "./components/Appbar";
 //no need to call directly prisma
 async function getUserData(){
   try{
@@ -14,11 +15,10 @@ async function getUserData(){
 export default async function render (){
   //First fetch it then render it.wait for fetching data , then render this component
   const userData = await getUserData();
-  return <>
+  return <div>
   <div className="h1 text-9xl text-center p-4">
-    <h1>hii there</h1>
-    {userData?.name}
+   <Appbar/>
    
   </div>
-  </>
+  </div>
 }

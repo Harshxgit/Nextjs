@@ -1,5 +1,5 @@
 import { Children } from "react"
-
+import { Providers } from "./providers"
 
 export default function RootLayout({
   children,
@@ -10,7 +10,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {/* Layout UI */}
-        <main>{children}</main>
+
+        <main>
+          <Providers>
+          {children}
+          </Providers>
+          </main>
       </body>
     </html>
   )
